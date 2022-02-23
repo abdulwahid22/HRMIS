@@ -1,0 +1,90 @@
+﻿@page "{handler?}/{id?}"
+
+@model NHCM.WebUI.Pages.Lookups.OrgPositionsModel
+@{
+    ViewData["Title"] = "OrgPositions";
+    Layout = "~/Pages/Shared/_CustomLayout.cshtml";
+} 
+@Html.AntiForgeryToken()
+<div class="panel-heading">
+    <h1 class="panel-title">پلان وظایف اداره</h1>
+</div>
+<div class="panel-body" style="padding-bottom:5px;">
+    <form id="dv_Lookups_OrgPositions" class="form main-form page-component" type="form" prefix="orp">
+        <fieldset class="content-group">
+            <legend class="text-bold">برای درج وظایف اداره / سازمان، لطفاً از فورم ذیل استفاده نمائید</legend>
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            Position Type
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="orppositiontypeid" name="orpPositionTypeId" class="select search" asp-items="@Model.ListOfPositionType" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            شعبه
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="orporgunittypeid" name="orpOrgUnitTypeId" asp-items="@Model.ListOfOrgUnitType" class="select search" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            راپورده/مافوق
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="orpparentid" name="orpParentId" asp-items="@Model.ListOfReportTo" class="select search">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            بست
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="orprankid" name="orpRankId" class="select search" asp-items="@Model.ListOfRanks" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr>
+                            <th colname="PositionTypeText">Position Type</th>
+                            <th colname="OrgUnitTypeText">نوعیت شعبه</th>
+                            <th colname="ParentText">راپورده/مافوق</th>
+                            <th colname="RankText">بست</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </fieldset>
+    </form>
+</div>
+

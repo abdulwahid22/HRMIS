@@ -1,0 +1,87 @@
+﻿@page "{handler?}"
+@model NHCM.WebUI.Pages.Ch.CheckOrganogramModel
+@{
+    ViewData["Title"] = "CheckOrganogram";
+    Layout = "~/Pages/Shared/_CustomLayout.cshtml";
+}
+
+@Html.AntiForgeryToken()
+<div class="panel-heading">
+    <h1 class="panel-title">پلان تشکیل</h1>
+</div>
+<div class="panel-body" style="padding-bottom:5px;">
+    <form id="dv_OrganogramCheckAndControl_CheckOrganogram" class="form main-form page-component" type="form" prefix="orgp">
+        <fieldset class="content-group">
+            <legend class="text-bold">برای درج تشکیل سال، لطفاً از فورم ذیل استفاده نمائید</legend>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            موسسه
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="orgporganizationid" name="orgporganizationid" asp-items="@Model.ListOfOrganization" class="select search" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            سال
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <input id="orgpyear" name="orgpYear" type="text" class="form-control search" disabled />
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            تعداد بست
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <input id="orgpnumberofpositions" name="orgpNumberOfPositions" type="text" class="form-control" disabled />
+                    </div>
+                </div>
+
+            </div>
+        </fieldset>
+        <hr />
+        <div class="row div-form-control">
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                    <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button> 
+                    <button type="button" class="btn btn-primary" action="test" style="float:left;"><i class="position-right"></i>تایید و ارسال</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-grid">
+            <table style="direction: rtl;" bindonclick="true">
+                <thead>
+                    <tr>
+                        <th colname="OrganizationText">موسسه</th>
+                        <th colname="TitleText">عنوان </th>
+                        <th colname="Year"> سال</th>
+                        <th colname="NumberOfPositions">تعداد بست</th>
+                        <th colname="statustext">حالت</th>
+
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="page-sidebar" type="subscreen">
+            <ul class="navigation navigation-alt navigation-accordion">
+                @Html.Raw(@Model.SubScreens)
+            </ul>
+        </div>
+    </form>
+</div>
+

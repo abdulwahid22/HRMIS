@@ -1,0 +1,122 @@
+﻿@page "{handler?}"
+@model NHCM.WebUI.Pages.Security.LogoutModel
+@{
+    Layout = null;
+}
+@using System.Web
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="apple-touch-icon" sizes="57x57" href="~/assets/favicon/apple-icon-57x57-nsia.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/assets/favicon/apple-icon-60x60-nsia.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/assets/favicon/apple-icon-72x72-nsia.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/favicon/apple-icon-76x76-nsia.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/assets/favicon/apple-icon-114x114-nsia.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/assets/favicon/apple-icon-120x120-nsia.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/assets/favicon/apple-icon-144x144-nsia.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/assets/favicon/apple-icon-152x152-nsia.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/favicon/apple-icon-180x180-nsia.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/assets/favicon/android-icon-192x192-nsia.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/assets/favicon/favicon-32x32-nsia.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/assets/favicon/favicon-96x96-nsia.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/favicon/favicon-16x16-nsia.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/assets/favicon/ms-icon-144x144-nsia.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>NSIA - HRMIS</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>themelock.com - Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
+    <!-- Global stylesheets -->
+    <link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+    <!-- Core JS files -->
+    <script type="text/javascript" src="~/assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/loaders/blockui.min.js"></script>
+    <link href="~/custom/css/hrmis.css" rel="stylesheet" />
+
+    <script>
+        $(function () {
+            function containerHeight() {
+                var availableHeight = $(window).height() - $('body > .navbar').outerHeight() - $('body > .navbar + .navbar').outerHeight() - $('body > .navbar + .navbar-collapse').outerHeight();
+                $('.page-container').attr('style', 'min-height:' + availableHeight + 'px');
+            }
+            $(window).on('resize', function () {
+                setTimeout(function () {
+                    containerHeight();
+                }
+                    , 100);
+            }).resize();
+        })();
+    </script>
+
+</head>
+<body class="rtl" dir="rtl">
+    <!-- Page container -->
+
+    <div class="page-container login-container">
+
+        <!-- Page content -->
+        <div class="page-content">
+            <!-- Main content -->
+            <div class="content-wrapper">
+                <!-- Content area -->
+                <div class="content"> 
+                    <div>
+                        
+                    </div> 
+                    <div class="panel panel-body login-form" style="border-radius:2px;">
+                        <div class="text-center">
+       
+                            <div class="login-logo">
+                                <img style="max-height:130px; max-width:250px" src="~/assets/img/logo.png" />
+                            </div>
+                            <div>
+                                <h4>شما در حال خروج از سیستم استید</h4>
+                                <img src="~/assets/icons/loading.gif" />
+                            </div>
+
+                            <h5 class="content-group" style="font-weight:bold">لطفا منتظر باشید<small class="display-block"></small></h5>
+                        </div>
+                    </div>
+                    <script>
+
+
+                        window.ApplicationBaseUrl = @Html.Raw(HttpUtility.JavaScriptStringEncode(Url.Content("~/"), true));
+
+
+                        var timer = setTimeout(function () {
+                            window.location = window.ApplicationBaseUrl +  'Security/Login';
+                        }, 10000);
+                    </script>
+
+                    <!-- Footer -->
+                    <div class="footer text-muted" style="font-weight:bold">
+                        &copy; ۱۳۹۸. <a href="http://nsia.gov.af">د احصائیې او معلوماتو ملي اداره | اداره ملی احصائیه و معلومات</a>
+                    </div>
+
+                    <!-- /footer -->
+                </div>
+                <!-- /content area -->
+            </div>
+            <!-- /main content -->
+        </div>
+        <!-- /page content -->
+    </div>
+    <!-- /page container -->
+
+
+</body>
+</html>

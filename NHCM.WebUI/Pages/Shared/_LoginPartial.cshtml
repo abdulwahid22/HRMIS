@@ -1,0 +1,61 @@
+﻿
+
+
+@using Microsoft.AspNetCore.Identity
+
+@using NHCM.Persistence.Infrastructure.Identity
+@inject SignInManager<HCMUser> SignInManager
+@inject UserManager<HCMUser> UserManager
+
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+
+
+
+
+
+    <li class="dropdown dropdown-user">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+            <i class="caret"></i>
+            <span> @UserManager.GetUserName(User)</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="#"><i class="icon-user-plus"></i>بیوگرافی من</a></li>
+            <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i class="icon-comment-discussion"></i>پیام های من</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="icon-cog5"></i>تنظیمات حساب من</a></li>
+            <li>
+                <a asp-page="/Security/Logout"  >
+
+                    <i class="icon-switch2"></i> خروج از سیستم
+                </a>
+                @*<form id="logoutForm" asp-page="/Security/Login" asp-route-returnUrl="@Url.Page("Security/Login") ">
+
+
+                    <button id="logout" type="submit" > <i class="icon-switch2"></i>   خروج از سیستم    </button>
+                </form>*@
+
+            </li>
+        </ul>
+    </li>
+
+   
+
+}
+
+else
+{
+
+    <div class="dropdown-toggle" data-toggle="dropdown">
+        <i class="caret"></i>
+        <a asp-page="/Security/Login">ورود به سیستم</a>
+    </div>
+}
+
+
+
+
+

@@ -1,0 +1,192 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Recruitment.EducationModel
+@{
+    Layout = null;
+}
+
+
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">تحصیلات</h1>
+    </div>
+    <div class="panel-body" style="padding-bottom:5px;">
+        <legend class="text-bold">لطفاً تحصیلات کارمند را در فورم ذیل درج نمائید</legend>
+        <form id="dv_Recruitment_Education" class="form sub-form page-component" type="form" attachment="true" prefix="uxed" parent="dv_Recruitment_Person" parentcol="PersonID">
+            <fieldset class="content-group">
+                <div class="row">
+                    <div class="col-md-8 pull-right">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label class="text-bold">
+                                        محل
+                                    </label>
+                                    <select id="uxedlocationid" asp-items="@Model.ListOfLocations" name="uxedLocationID" class="select">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label class="text-bold">
+                                        درجه تحصیل
+                                        <span class="text-danger">&nbsp;*</span>
+                                    </label>
+
+                                    <select id="uxededucationlevelid" name="uxedEducationLevelID" asp-items="@Model.ListOfEducationLevels" class="select" required>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label class="text-bold">
+                                        موسسه تحصیلی
+                                    </label>
+                                    <input id="uxedinstitute" name="uxedInstitute" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label class="text-bold">
+                                        نمبر سند رسمی
+                                    </label>
+                                    <input id="uxedofficialdocumentno" name="uxedOfficialDocumentNo" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label class="text-bold">
+                                        پوهنځی
+                                    </label>
+                                    <input id="uxedfaculty" name="uxedFaculty" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label class="text-bold">
+                                        دیپارتمنت
+                                    </label>
+                                    <input id="uxeddepartment" name="uxedDepartment" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label class="text-bold">
+                                        تخصص
+                                    </label>
+                                    <input id="uxedmajor" name="uxedMajor" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label class="text-bold">
+                                        رشته
+                                    </label>
+                                    <input id="uxedcourse" name="uxedCourse" type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 pull-right">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <label class="text-bold">ملاحضات<span class="text-danger">&nbsp;*</span></label>
+                                    <textarea id="uxedremarks" name="uxedRemarks" rows="4" cols="5" class="form-control remarks"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pull-right"> 
+                        <div class="row"> 
+                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right"> 
+                                <div class="form-group">
+                                    <label class="text-bold">
+                                        تاریخ آغاز
+                                        <span class="text-danger">&nbsp;*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                        <input type="text" id="uxedstartdateshamsi" name="uxedstartdateshamsi" class="form-control Shamsi" sibling="uxedstartdate" placeholder="هجری شمسی" aria-label="date1" aria-describedby="date1" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group">
+                                    <label class="text-bold">
+                                        <span class="text-danger">&nbsp;*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                        <input type="text" sibling="uxedstartdateshamsi" id="uxedstartdate" name="uxedstartdate" class="form-control Miladi" placeholder="میلادی" aria-label="date1" aria-describedby="date1" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pull-right"> 
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right"> 
+                                <div class="form-group">
+                                    <label class="text-bold">
+                                        تاریخ ختم
+                                        <span class="text-danger">&nbsp;*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar3"></i></span> 
+                                        <input type="text" id="uxedenddateshamsi" name="uxedenddateshamsi" sibling="uxedenddate" class="form-control Shamsi" placeholder="هجری شمسی" aria-label="date1" aria-describedby="date1" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group">
+                                    <label class="text-bold">
+                                        <span class="text-danger">&nbsp;*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar3"></i></span> 
+                                        <input type="text" sibling="uxedenddateshamsi" id="uxedenddate" name="uxedenddate" class="form-control Miladi" placeholder="میلادی" aria-label="date2" aria-describedby="date2" required />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-new-tab position-right"></i>جستجو</button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr>
+                            <th colname="educationleveltext">درجه تحصیل</th>
+                            <th colname="locationtext">محل تحصیل</th>
+                            <th colname="institute">موسسه تحصیلی</th>
+                            <th colname="faculty">فاکولته</th>
+                            <th colname="department">دیپارتمنت</th>
+                            <th colname="StartDateText">تاریخ شروع</th>
+                            <th colname="EndDateText">تاریخ ختم</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+﻿@page "{handler?}"
+@model NHCM.WebUI.Pages.Security.RegisterModel
+@{
+    Layout = "Security/Shared/_SecuritySharedLayout";
+}
+
+
+
+@Html.AntiForgeryToken()
+
+
+<div class="panel-body">
+    <div class="row">
+        <div class="col-md-6 pull-right">
+            <form id="dv_Security_Register" class="form main-form page-component" type="form" prefix="ux">
+
+                <fieldset class="content-group">
+                    <legend>برای ایجاد حساب کاربری لطفا از فورم ذیل استفاده کنید</legend>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group">
+                                <label class="text-bold">
+                                    کارمند
+                                </label>
+
+                                <select id="uxemployeeid" name="uxEmployeeID" asp-items="@Model.ListOfPerson" class="select" required>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group">
+                                <label class="text-bold">
+                                    ارگان
+                                </label>
+
+                                <select id="uxorganizationid" name="uxOrganizationID" asp-items="@Model.ListOfOrganization" class="select" required>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+                                    ایمیل آدرس
+
+                                </label>
+
+
+                                <input id="uxemail" name="uxEmail" class="form-control" />
+                                <div class="form-control-feedback">
+                                    <i class="icon-mail5 text-size-base">
+
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+
+                                    نام کاربری
+
+                                </label>
+
+                                @*<span asp-validation-for="@Model.UserName" class="text-danger"></span>*@
+                                <input id="uxusername" name="uxUserName" class="form-control" />
+                                <div class="form-control-feedback">
+                                    <i class="icon-user text-size-base">
+
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+                <div class="row div-form-control">
+                    <div class="col-md-12">
+                        <div class="form-group actions">
+                            @*<button type="submit" asp-page-handler="Register" class="btn btn-primary"><i class="icon-floppy-disk position-right"></i>ثبت کاربر</button>*@
+                            <button type="button" action="save" class="btn btn-primary"><i class="icon-floppy-disk position-right"></i>ثبت کاربر</button>
+                            <button type="button" action="linm" class="btn btn-primary"><i class="icon-download position-right"></i>حقوق ونقش ها</button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-grid main-form-details">
+                    <table style="direction:rtl" bindonclick="true">
+                        <thead>
+                            <tr>
+                                <th colname="username"></th>
+                                <th colname="employeename"></th>
+                                <th colname="organizationtext"></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

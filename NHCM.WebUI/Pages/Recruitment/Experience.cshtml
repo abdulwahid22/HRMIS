@@ -1,0 +1,216 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Recruitment.ExperienceModel
+
+
+@{ 
+    Layout = null;
+}
+
+
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">تجارب کاری</h1>
+    </div>
+    <div class="panel-body" style="padding-bottom:5px;">
+
+
+        <form id="dv_Recruitment_Experience" class="form sub-form page-component" attachment="true" type="form" prefix="uxex" parent="dv_Recruitment_PersonProfile" parentcol="PersonID">
+            <fieldset class="content-group">
+                <legend class="text-bold">لطفاً تجارب کاری کارمند را در فورم ذیل درج نمائید</legend>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                موسسه/اداره
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input type="text" id="uxexorganization" class="form-control" required />
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نوع اداره
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxexorganizationtypeid" asp-items="@Model.ListOfOrganizationType" name="uxexOrganizationTypeID" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                محل
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxexlocationid" asp-items="@Model.ListOfLocations" name="uxexLocationID" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                بست
+                            </label>
+                            <select id="uxexrankid" asp-items="@Model.ListOfRanks" name="uxexRankID" class="select">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                وظیفه
+                            </label>
+                            <input id="uxexdesignation" name="uxexDesignation" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                حالت وظیفه
+                            </label>
+                            <select id="uxexjobstatusid" asp-items="@Model.ListOfJobStatus" name="uxexJobStatusID" class="select">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                قدم/رتبه
+                            </label>
+                            <select id="uxexpromotionid" asp-items="@Model.ListOfRanks" name="uxexPromotionID" class="select">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                معلومات تماس
+                            </label>
+                            <input id="uxexcontactinfo" name="uxexContactInfo" type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                تاریخ آغاز
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxexstartdate1" name="uxexstartdate1" sibling="uxexstartdate" class="form-control Shamsi" placeholder="تاریخ آغاز" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxexstartdate" name="uxexstartdate" sibling="uxexstartdate1" class="form-control Miladi" placeholder="معادل" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                تاریخ ختم
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxexenddate1" name="uxexenddate1" sibling="uxexenddate" class="form-control Shamsi" placeholder="تاریخ ختم" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxexenddate" name="uxexenddate" sibling="uxexenddate1" class="form-control Miladi" placeholder="معادل" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                حالت /وظیفه
+                            </label>
+                            <select id="uxexexperiencetypeid" asp-items="@Model.ListOfExperienceType" name="uxexExperienceTypeID" class="select">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">ملاحضات<span class="text-danger">&nbsp;*</span></label>
+                            <textarea id="uxexremarks" name="uxexRemarks" rows="2" cols="5" class="form-control remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr>
+                            <th colname="organization">موسسه</th>
+                            <th colname="Designation">وظیفه</th>
+                            <th colname="RankText">بست</th> 
+                            <th colname="PromotionText">قدم/رتبه</th>
+
+                            <th colname="LocationText">محل</th>
+                            <th colname="ContactInfo">معلومات تماس</th> >
+                            <th colname="StartDateText">تاریخ آغاز</th>
+                            <th colname="EndDateText">تاریخ ختم</th>
+
+                            <th colname="JobStatusText">حالت وظیفه</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+  

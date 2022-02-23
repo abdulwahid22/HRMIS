@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <link rel="apple-touch-icon" sizes="57x57" href="~/assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>سیستم ملی منابع بشری دولت افغانستان</title>
+    @* Template css references *@
+    <link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/croppic.css" rel="stylesheet" />
+
+
+    <link href="~/assets/css/jquery.treetable.theme.default.css" rel="stylesheet" />
+    <link href="~/assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" />
+    <link href="~/assets/css/jquery.orgchart.css" rel="stylesheet" />
+
+
+    @* CSS for the persian datepicker *@
+    <link href="~/custom/css/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet" />
+    @* Overriden other classes*@
+    <link href="~/custom/css/hrmis.css" rel="stylesheet" />
+    @*Treetable Css file*@
+    <link href="~/custom/css/jquery.treetable.css" rel="stylesheet" />
+
+</head>
+<body class="rtl" dir="rtl">
+    <!-- Main navbar -->
+    <div class="navbar" style="background: #fff; box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5); color: #444;">
+        <div class="navbar-header">
+
+
+
+
+
+            <a class="navbar-brand" href="../index">
+                <img src="~/assets/img/iarcsc.png" />
+                <span>
+                    کمیسیون مستقل اصلاحات اداری و خدمات ملکی
+                </span>
+            </a>
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+
+        <ul class="nav navbar-nav">
+
+            <partial name="_LoginPartial" />
+        </ul>
+
+    </div>
+
+
+
+
+    <div class="page-container">
+        <!-- Page content -->
+        <div class="page-content">
+            <div class="content-wrapper">
+                <!-- Content area -->
+                <div class="content">
+                    <div class="row">
+
+
+
+                     
+                        <div class="col-md-12">
+                            <div class="panel panel-flat" style="direction: rtl;">
+                                @RenderBody()
+                            </div>
+                            <div class="dependent-screens">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <environment include="Development,Production">
+        <script type="text/javascript" src="~/assets/js/plugins/loaders/pace.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/core/libraries/jquery.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/core/libraries/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/plugins/tables/datatables/datatables.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/plugins/notifications/jgrowl.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/plugins/forms/validation/validate.min.js"></script>
+        <script src="~/assets/js/plugins/uploaders/fileinput.min.js"></script>
+
+
+        <script src="~/assets/js/plugins/forms/selects/select2.min.js"></script>
+        <script src="~/custom/js/jquery.md.bootstrap.datetimepicker.js"></script>
+        <script src="~/assets/js/plugins/forms/validation/localization/messages_fa.js"></script>
+        <script src="~/assets/js/plugins/croppic/croppic.js"></script>
+
+        <script src="~/assets/js/plugins/treetable/jquery.treetable.js"></script>
+        <script src="~/assets/js/plugins/html2convas/html2canvas.js"></script>
+        <script src="~/assets/js/plugins/orgchart/jquery.orgchart.js"></script>
+
+        <script src="~/assets/js/plugins/clean/nhcm.clean.v1.0.0.001.js"></script>
+        <script src="~/assets/js/plugins/clean/nhcm.clean.page.v1.0.0.001.js"></script>
+        <script src="~/assets/js/plugins/clean/nhcm.clean.form.v1.0.0.001.js"></script>
+        <script src="~/assets/js/plugins/clean/nhcm.clean.actionmenu.v1.0.0.001.js"></script>
+        <script src="~/assets/js/plugins/clean/nhcm.clean.tazkira.v1.0.0.001.js"></script>
+
+
+    </environment>
+
+
+    <script>
+        $(document).ready(function () {
+            clean.init();
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

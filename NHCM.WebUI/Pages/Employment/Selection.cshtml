@@ -1,0 +1,209 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Employment.SelectionModel
+@{
+
+    Layout = null;
+}
+
+
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">تعیینات مطابق به تشکیلات تائید شده</h1>
+    </div>
+
+
+    <div class="panel-body" style="padding-bottom:5px;">
+
+        <form id="dv_Employment_Selection" class="form sub-form page-component" type="form" category="modal" prefix="ux" parent="dv_Employment_Plan" parentcol="OrganoGramId" hasprocess="true">
+
+            <input id="pageid" type="hidden" asp-for="@Model.ScreenID" />
+
+
+            <div class="modal fade">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="panel panel-flat" style="direction: rtl;">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">ثبت و تغیر بست های تشکیل</h1>
+                            </div>
+                            <div class="panel-body" style="padding-bottom:5px;">
+                                <fieldset class="content-group">
+                                    <legend class="text-bold">برای مشاهده، تعیینات کارمندان لطفاً تشکیل مربوطه را انتخاب نمائید</legend>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                                            <div class="form-group">
+                                                <label class="text-bold">
+                                                    کارمند
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <select id="uxpersonid" name="uxpersonid" class="select" data-type="employees" required>
+                                                    <option></option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                                            <div class="form-group">
+                                                <label class="text-bold">
+                                                    قدم
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <select id="uxqadamid" name="uxqadamid" asp-items="@Model.ListOfRanks" class="select" required>
+                                                    <option></option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                                            <div class="form-group">
+                                                <label class="text-bold">
+                                                    نوع تعیینات
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <select id="uxeventtypeid" name="uxeventtypeid" data-type="events" class="select" required>
+                                                    <option></option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                            <div class="form-group">
+                                                <label class="text-bold">
+                                                    ریاست مربوطه
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <select id="uxdepartmentid" name="uxdepartmentid" asp-items="@Model.ListOfDepartment" class="select" required>
+                                                    <option></option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right hokmi">
+                                            <div class="form-group has-feedback has-feedback-left">
+                                                <label class="text-bold">
+                                                    نمبر حکم
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <input id="uxverdictregno" name="uxverdictregno" type="text" class="form-control "  />
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-12 col-xs-12 pull-right hokmi">
+                                            <div class="form-group">
+                                                <label class="text-bold">
+                                                    تاریخ حکم (هجری شمسی)
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                                    <input type="text" id="uxverdictdatepersian" name="uxverdictdatepersian" class="form-control Shamsi" sibling="uxverdictdate" placeholder="تاریخ حکم"  />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-12 col-xs-12 pull-right hokmi">
+                                            <div class="form-group">
+                                                <label class="text-bold">
+                                                    تاریخ حکم (میلادی)
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                                    <input type="text" id="uxverdictdate" name="uxverdictdate" class="form-control Miladi" sibling="uxverdictdatepersian" placeholder="تاریخ حکم"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right nonhokmi">
+                                            <div class="form-group has-feedback has-feedback-left">
+                                                <label class="text-bold">
+                                                    نتیجه امتحان
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <input id="uxfinalno" name="uxfinalno" type="text" class="form-control rrequired"  />
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12 pull-right nonhokmi">
+                                            <div class="form-group">
+                                                <label class="text-bold">
+                                                    تاریخ منظوری (هجری شمسی)
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                                    <input type="text" id="uxeffectivedatepersian" name="uxeffectivedatepersian" class="form-control Shamsi rrequired" sibling="uxeffectivedate" placeholder="تاریخ منظوری"  />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-12 col-xs-12 pull-right nonhokmi">
+                                            <div class="form-group">
+                                                <label class="text-bold">
+                                                    تاریخ منظوری (میلادی)
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                                    <input type="text" id="uxeffectivedate" name="uxeffectivedate" class="form-control Miladi rrequired" sibling="uxeffectivedatepersian" placeholder="تاریخ منظوری"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-11 col-sm-12 col-xs-12 pull-right">
+                                            <div class="form-group">
+                                                <label class="text-bold">
+                                                    ملاحظات
+                                                    <span class="text-danger">&nbsp;*</span>
+                                                </label>
+                                                <textarea id="uxremarks" name="uxremarks" rows="2" cols="2" class="form-control remarks"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <hr />
+                                <div class="row div-form-control">
+                                    <div class="col-md-12">
+                                        <div class="form-group actions">
+                                            <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                                            <button type="button" class="btn btn-primary" action="search" showongrid="true"><i class="icon-search4 position-right"></i>نمایش تمام تعیینات </button>
+                                            <button type="button" class="btn btn-link close-bttn" data-dismiss="modal"><i class="icon-close2 position-right"></i>صرف نظر</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="div-grid-control" style="display:none;">
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="javascript:void(0);" class="grid-action" data-attribute="positionid" action="update"><i class="icon-pencil7"></i>نمایش جزئیات و تغیر</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <table style="direction: rtl;" type="treetable" modal-title="چارت تشکیلات" modal-description="چارت تشکیلات مطابق به جدول تشکیل ترتیب شده ترسیم و آماده پرنت میباشد" organogram="true" node-title="Title" node-sub-title="Code" node-description="PersonName" fullheight="true" filter="true" ignoreinitialformbind="true" action-button="نمایش چارت تشکیلاتی">
+
+                    <thead>
+                        <tr>
+                            <th colname="Title">نوع وظیفه</th>
+                            <th colname="PersonName">متصدی بست</th>
+                            <th colname="RankText">بست</th>
+                            <th colname="Code">کود بست</th>
+                            <th colname="Action">تغیرات/عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+ 

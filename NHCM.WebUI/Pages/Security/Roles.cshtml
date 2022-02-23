@@ -1,0 +1,98 @@
+﻿@page
+@model NHCM.WebUI.Pages.Security.RolesModel
+@{
+    ViewData["Title"] = "Roles";
+    Layout = "~/Pages/Security/Shared/_SecuritySharedLayout.cshtml";
+}
+
+
+
+
+<div class="panel-heading">
+    
+
+    <h1 class="panel-title">ایجاد نقش</h1>
+</div>
+
+<div class="panel-body">
+    <form asp-page-handler="CreateRole" method="post">
+
+        <fieldset class="content-group">
+            <legend>برای ایجاد حقوق استفاده از سیستم از این فورم استفاده نماید</legend>
+            <div class="row">
+                <div class="col-md-6 pull-right">
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group">
+                                <label asp-for="@Model.RoleName" class="text-bold">
+                                    نام نقش
+
+                                </label>
+                                <span asp-validation-for="@Model.RoleName" class="text-danger"></span>
+                                <input asp-for="@Model.RoleName" class="form-control" />
+
+
+
+                                <div class="form-control-feedback">
+                                    <i>
+
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-md-6 pull-right">
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+                            @if (ModelState.ErrorCount > 0)
+                            {
+                                <label class="control-label text-bold text-danger">
+                                    لطفا دقت نماید
+                                </label>
+                                <ul>
+                                    @foreach (var item in ViewData.ModelState.Values)
+                                    {
+                                        foreach (var error in item.Errors)
+                                        {
+                                            <li style="color:red">@error.ErrorMessage</li>
+                                        }
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <ul>
+                                    <li style="color:green"> @Model.Message </li>
+                                </ul>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="row div-form-control">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="submit"  class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت نقش</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+@section Scripts{ 
+    <partial name="Security/Shared/_ValidationScriptsPartial" />
+}

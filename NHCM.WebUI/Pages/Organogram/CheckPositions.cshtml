@@ -1,0 +1,60 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.OrganogramCheckAndControl.CheckPositionsModel
+@{
+    ViewData["Title"] = "CheckPositions";
+    Layout = null;
+}
+
+
+
+<div class="panel panel-flat">
+    <div class="panel-heading">
+        <h1 class="panel-title">ثبت بست</h1>
+    </div>
+
+    <div class="panel-body" style="padding-bottom:5px;">
+        <form id="dv_OrganogramCheckAndControl_CheckPositions" class="form sub-form page-component" type="form" prefix="po" parent="dv_OrganogramCheckAndControl_CheckOrganogram" parentcol="OrganoGramId">
+            <fieldset class="content-group">
+                <label class="text-bold">لطفاً بست های ذیل را بررسی نمایید</label>
+            </fieldset>
+
+            <div class="form-grid">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>عنوان وظیفه</th>
+                            <th>وزارت / اداره</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr data-tt-id="1"><td>رییس عمومی</td><td>اداره ملی احصایه</td></tr>
+                        <tr data-tt-id="2" data-tt-parent-id="1"><td>معاونیت انسجام و انکشاف سیستم ها</td><td>ادار ملی احصایه و معلومات</td></tr>
+                        <tr data-tt-id="3" data-tt-parent-id="1"><td>معاونیت GIS</td><td>اداره ملی احصایه و معلومات</td></tr>
+                        <tr data-tt-id="4"><td>ریاست انسجام</td><td>اداره ملی احصایه</td></tr>
+                        <tr data-tt-id="5" data-tt-parent-id="4"><td>آمریت انسجام</td><td>اداره ملی احصایه</td></tr>
+                        <tr data-tt-id="6" data-tt-parent-id="5"><td>مدیریت معلومات</td><td>اداره ملی احصایه</td></tr>
+                        <tr data-tt-id="7" data-tt-parent-id="5"><td>امریت</td> <td>اداره ملی احصایه</td></tr>
+                        <tr data-tt-id="8" data-tt-parent-id="7"><td>مدیریت</td><td>اداره ملی احصایه</td></tr>
+                        <tr data-tt-id="9" data-tt-parent-id="7"><td>مدیریت</td><td>اداره ملی احصایه</td></tr>
+                        <tr data-tt-id="10" data-tt-parent-id="7"><td>ادره </td><td>اداره ملی احصایه</td></tr>
+                        <tr data-tt-id="11" data-tt-parent-id="10"><td>مدیریت</td><td>اداره ملی احصایه</td></tr>
+                        <tr data-tt-id="12" data-tt-parent-id="10"><td>مدیریت</td><td>اداره ملی احصایه</td></tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("table").agikiTreeTable({ persist: true, persistStoreName: "true" });
+
+    });
+</script>

@@ -1,0 +1,159 @@
+﻿@page "{handler?}"
+@model NHCM.WebUI.Pages.Recruitment.PersonSkillModel
+@{
+    Layout = null;
+}
+
+
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">بخش مهارت ها و تصدیق نامه ها</h1>
+    </div>
+    <div class="panel-body" style="padding-bottom:5px;">
+        <form id="dv_Recruitment_Skill" class="form sub-form page-component" attachment="true" type="form" prefix="uxps" parent="dv_Recruitment_Person" parentcol="PersonID">
+            <fieldset class="content-group">
+                <legend class="text-bold">آموزش های کوتاه مدت</legend>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                محل آموزش
+                            </label>
+                            <select id="uxpslocationid" name="uxpsLocationID" asp-items="@Model.ListOfLocations" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نوع آموزش
+                            </label>
+
+                            <select id="uxpsskilltypeid" asp-items="@Model.ListOfSkillType" name="uxpsSkillTypeID" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نتیجه
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxpsexpertiseid" name="uxpsExpertiseID" asp-items="@Model.ListOfExpertise" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                تاریخ آغاز
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="StartDateShamsi" sibling="uxpsstartdate" name="StartDateShamsi" class="form-control Shamsi" placeholder="تاریخ آغاز" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxpsstartdate" name="uxpsStartDate" sibling="StartDateShamsi" class="form-control Miladi" placeholder="معادل" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                تاریخ ختم
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxexenddateshamsi" sibling="uxpsenddate" name="uxexEndDateShamsi" class="form-control Shamsi" placeholder="تاریخ آغاز" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxpsenddate" name="uxpsEndDate" sibling="uxexenddateshamsi" class="form-control Miladi" placeholder="معادل" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                تصدیق نامه
+                            </label>
+                            <select id="uxpscertificationid" name="uxpsCertificationID" asp-items="@Model.ListOfCertification" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                مرجع
+                            </label>
+                            <input id="uxpscertifiedfrom" name="uxpsCertifiedFrom" type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-10 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">ملاحضات<span class="text-danger">&nbsp;*</span></label>
+                            <textarea id="uxpsremarks" name="uxpsremarks" rows="2" cols="5" class="form-control remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+                    </div>
+                </div>
+            </div> 
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr>
+                            <th colname="CertificationText">تصدیق نامه</th>
+                            <th colname="certifiedfrom">مرجع</th>
+                            <th colname="StartDateText">تاریخ آغاز</th>
+                            <th colname="StartDateText">تاریخ ختم</th>
+                            <th colname="ExpertiseText">نوع مهارت</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </form>
+         
+    </div>
+</div>

@@ -1,0 +1,323 @@
+﻿@page "{handler?}"
+@using NHCM.Domain.Entities;
+@model NHCM.WebUI.Pages.Recruitment.PersonModel
+@{
+    ViewData["Title"] = "Person";
+    Layout = "~/Pages/Shared/_CustomLayout.cshtml";
+
+    var cultureInfo = System.Globalization.CultureInfo.CurrentCulture;
+}
+@Html.AntiForgeryToken()
+<div class="panel-heading">
+    <h1 class="panel-title">@Localizer.Text("EmployeeBio")</h1>
+</div>
+<div class="panel-body" style="padding-bottom:5px;">
+    <form id="dv_Recruitment_Person" class="form main-form page-component" type="form"  hasprocess="true" attachment="true" prefix="ux" >
+        <fieldset class="content-group">
+            <legend class="text-bold">@Localizer.Text("ToInsertPersonProfile")</legend>
+            <div class="row">
+                <div class="col-md-10 pull-right">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group">
+                                <label class="text-bold">
+                                    @Localizer.Text("CodeKadri")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxhrcode" name="uxHRCode" type="text" class="form-control " disabled />
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group">
+                                <label class="text-bold">
+                                    @Localizer.Text("Identity Type and number")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxnidtext" name="uxnidtext" type="text" class="form-control " disabled />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+                                    @Localizer.Text("Name")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxfirstname" name="uxFirstName" type="text" class="form-control search" required />
+                                <div class="form-control-feedback">
+                                    <i class="icon-search4 text-size-base"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+                                    @Localizer.Text("LastName")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxlastname" name="uxLastName" type="text" class="form-control search" required />
+                                <div class="form-control-feedback">
+                                    <i class="icon-search4 text-size-base"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+                                    @Localizer.Text("FatherName")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxfathername" name="uxFatherName" type="text" class="form-control search" required />
+                                <div class="form-control-feedback">
+                                    <i class="icon-search4 text-size-base"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+                                    @Localizer.Text("GrandFatherName")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxgrandfathername" name="uxGrandFatherName" type="text" class="form-control search" required />
+                                <div class="form-control-feedback">
+                                    <i class="icon-search4 text-size-base"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+                                    @Localizer.Text("NameEn")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxfirstnameeng" name="uxFirstNameEng" type="text" class="form-control search" placeholder=@Localizer.Text("InEnglish") required />
+                                <div class="form-control-feedback">
+                                    <i class="icon-search4 text-size-base"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+                                    @Localizer.Text("LastNameEn")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxlastnameeng" name="uxLastNameEng" type="text" class="form-control search" placeholder=@Localizer.Text("InEnglish") required />
+                                <div class="form-control-feedback">
+                                    <i class="icon-search4 text-size-base"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+                                    @Localizer.Text("FatherNameEn")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxfathernameeng" name="uxFatherNameEng" type="text" class="form-control search" placeholder=@Localizer.Text("InEnglish") required />
+                                <div class="form-control-feedback">
+                                    <i class="icon-search4 text-size-base"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group has-feedback has-feedback-left">
+                                <label class="text-bold">
+                                    @Localizer.Text("GrandFatherNameEn")
+                                    <span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <input id="uxgrandfathernameeng" name="uxGrandFatherNameEng" type="text" class="form-control search" placeholder=@Localizer.Text("InEnglish") required />
+                                <div class="form-control-feedback">
+                                    <i class="icon-search4 text-size-base"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-lg-2 pull-right">
+                    <div id="uxPhoto" class="img-uploader">
+                    </div>
+                    <input type="hidden" class="output" id="uxphotopath" />
+                </div>
+            </div>
+
+            <div class="main-form-details">
+                <hr />
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                @Localizer.Text("DateOfBirthShamsi")
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxdobshamsi" name="uxDobShamsi" class="form-control Shamsi" sibling="uxdateofbirth" placeholder="تارخ تولد شمسی" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                @Localizer.Text("DateOfBirth")
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxdateofbirth" name="uxDateOfBirth" class="form-control Miladi" sibling="uxdobshamsi" placeholder="تاریخ تولد میلادی" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                @Localizer.Text("BirthLocation")
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxbirthlocationid" name="uxBirthLocationId" class="select" asp-items="@Model.ListOfLocations" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                @Localizer.Text("BloodGroup")
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+
+                            <select id="uxbloodgroupid" name="uxbloodgroupid" class="select" asp-items="@Model.ListOfBloodGroups" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                @Localizer.Text("Gander")
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxgenderid" name="uxGenderId" class="select" asp-items="@Model.ListOfGenders" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                @Localizer.Text("MaritalStatus")
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxmaritalstatusid" name="uxMaritalStatusId" class="select" asp-items="@Model.ListOfMaritalStatus" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                دین/مذهب
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxreligionid" name="uxReligionId" class="select" asp-items="@Model.ListOfReligions" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                قومیت
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxethnicityid" name="uxEthnicityId" class="select" asp-items="@Model.ListOfEthnicities" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right national-id">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                نوع سند هویت
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxdocumenttypeid" name="uxdocumenttypeid" asp-items="@Model.ListOfDocumentTypes" class="select" required>
+                                <option></option>
+                            </select>
+                            <input type="hidden" id="uxnid" class="national-id-input" sibling="uxdocumenttypeid" name="uxnid" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <hr />
+        <div class="row div-form-control main-form-details">
+            <div class="col-md-12">
+                <div class="form-group actions">
+                    <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                    <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                    <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-grid main-form-details">
+            <table style="direction: rtl;" bindonclick="true">
+                <thead>
+                    <tr>
+                        <th colname="firstname">نام</th>
+                        <th colname="lastname">تخلص</th>
+                        <th colname="fathername">نام پدر</th>
+                        <th colname="grandfathername">نام پدر کلان</th>
+                        <th colname="gendertext">جنسیت</th>
+                        <th colname="ethnicitytext">قومیت</th>
+                        <th colname="dobtext">تاریخ تولد</th>
+                        <th colname="nidtext">سند هویت</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+    </form>
+</div>
+
+<div class="page-sidebar page-component" type="actionmenu">
+    <ul class="navigation navigation-alt navigation-accordion">
+        @Html.Raw(@Model.SubScreens)
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

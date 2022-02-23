@@ -1,0 +1,95 @@
+﻿@page "{handler?}"
+@model NHCM.WebUI.Pages.Employment.CardModel
+@{
+    ViewData["Title"] = "Card";
+    Layout = "~/Pages/Shared/_CustomLayout.cshtml";
+}
+
+
+@Html.AntiForgeryToken()
+
+<div class="panel-body">
+    <div class="row">
+        <div class="col-md-12 pull-right">
+
+                <form id="dv_Employment_Card" class="form main-form page-component" type="form" prefix="ux">
+
+                    <fieldset class="content-group">
+                        <legend>جهت تنظیم کارت هویت کارمند از این فورم استفاده نمایید</legend>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group">
+                                    <label class="text-bold">
+                                        کارمند
+                                    </label>
+
+                                    <select id="uxpersonid" name="uxpersonid" asp-items="@Model.ListOfPerson" class="select search" required>
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group">
+                                    <label class="text-bold">
+                                        تاریخ انقضا
+                                        <span class="text-danger">&nbsp;*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                        <input type="text" id="uxexpirydateshamsi" name="uxExpiryDateShamsi" class="form-control Shamsi" sibling="uxexpirydate" placeholder="تارخ تولد شمسی" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                                <div class="form-group">
+                                    <label class="text-bold">
+                                        معادل
+                                        <span class="text-danger">&nbsp;*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                        <input type="text" id="uxexpirydate" name="uxExpiryDate" class="form-control Miladi" sibling="uxexpirydateshamsi" placeholder="تاریخ تولد میلادی" required />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </fieldset>
+                    <div class="row div-form-control">
+                        <div class="col-md-12">
+                            <div class="form-group actions">
+                                <button type="button" action="save" class="btn btn-primary"><i class="icon-floppy-disk position-right"></i>تنظیم کارت</button>
+                                <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                                <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-grid">
+                        <table style="direction:rtl" bindonclick="true" filter="true">
+                            <thead>
+                                <tr>
+                                    <th colname="FirstName">اسم</th>
+                                    <th colname="FatherName">ولد/بنت</th>
+                                    <th colname="IssueDate">تاریخ تنظیم کارت</th>
+                                    <th colname="ExpiryDate">تاریخ انقضا</th>
+                                    <th colname="CardPrinted">کارت چاپ شده یا خیر</th>
+
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+

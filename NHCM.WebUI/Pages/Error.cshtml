@@ -1,0 +1,19 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">خطای تخنیکی.</h1>
+
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<p>
+    کاربر محترم درخواست شما مواجه با مشکل تخنیکی میباشد. لطفا با مدیر مسول سیستم به تماس شوید
+</p>

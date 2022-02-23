@@ -1,0 +1,110 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Recruitment.PublicationModel
+@{
+    Layout = null;
+}
+
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">انتشارات</h1>
+    </div>
+    <div class="panel-body" style="padding-bottom:5px;">
+        <form id="dv_Recruitment_Publication" class="form sub-form page-component" attachment="true" type="form" prefix="uxpu" parent="dv_Recruitment_Person" parentcol="PersonID">
+            <fieldset class="content-group">
+                <legend class="text-bold">لطفاًانتشارات کارمند را در این فورم ثبت نماید</legend>
+                <div class="row">
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نوع انتشارات
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxpupublicationtypeid" name="uxpuPublicationTypeID" asp-items="@Model.ListOfPublicationType" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                مضمون
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxpusubject" name="uxpuSubject" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                تعداد صفحات
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxpunoofpages" name="uxpuNoofPages" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                ISBN
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxpuisbn" name="uxpuIsbn" type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                تاریخ چاپ
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxpupublishdateshamsi" class="form-control Shamsi" sibling="uxpupublishdate" placeholder="تاریخ چاپ" aria-label="date1" aria-describedby="date1" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                معادل
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxpupublishdate" name="uxpupublishdate" sibling="uxpupublishdateshamsi" class="form-control Miladi" placeholder="تاریخ آغاز به میلادی" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr>
+                            <th colname="PublicationTypeText">نوع انتشار</th>
+                            <th colname="subject">مضمون </th>
+                            <th colname="PublishDateText"> تاریخ چاپ</th>
+                            <th colname="Isbn"> ISBN</th>
+                            <th colname="NoofPages">تعداد صفحات </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

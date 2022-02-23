@@ -1,0 +1,177 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Recruitment.ReferenceModel
+
+
+@{
+    Layout = null;
+}
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">بخش تضمین</h1>
+    </div>
+    <div class="panel-body" style="padding-bottom:5px;"> 
+        <form id="dv_Recruitment_Reference" class="form sub-form page-component" attachment="true" type="form" prefix="uxrf" parent="dv_Recruitment_Person" parentcol="PersonID">
+            <fieldset class="content-group">
+                <legend class="text-bold">لطفا معلومات تضمین کننده های کارمند را اینجا ثبت کنید</legend>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                لطفا نوعیت تضمین را مشخص نمایید
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+
+                            <select id="uxrfreferencetypeid" name="uxrfReferenceTypeId" asp-items="@Model.ListOfReferenceType" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نام تضمین کننده
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxrffirstname" name="uxrfFirstName" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                تخلص
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxrflastname" name="uxrfFirstName" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                اسم پدر
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxrffathername" name="uxrfFatherName" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                اسم پدر کلان
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxrfgrandfathername" name="uxrfGrandFatherName" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نمبر تلیفون
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxrftelephoneno" name="uxrfTelephoneNo" type="text" class="form-control" />
+                        </div>
+                    </div> 
+                </div>
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                وظیفه
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxrfoccupation" name="uxrfOccupation" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نام ارگان
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxrforganization" name="uxrfOrganization" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                سکونت اصلی
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxrflocationid" name="uxrfLocationId" asp-items="@Model.ListOfLocations" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                ولسوالی
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxrfdistrict" name="uxrfDistrict" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                رابطه
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxrfrelationship" name="uxrfRelationShip" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+                
+
+
+
+            </fieldset>
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr> 
+                            <th colname="firstname">نام تضمین کننده</th>
+                            <th colname="fathername">نام پدر</th>
+                            <th colname="occupation">وظیفه</th>
+                            <th colname="Organization">نام ارگان</th>
+                            <th colname="LocationText">سکونت اصلی</th>
+                            <th colname="District">ولسوالی</th>
+                            <th colname="RelationShip">رابطه</th> 
+                            <th colname="TelephoneNo">شماره تماس</th>
+                            <th colname="ReferenceTypeText">نوعیت تضمین</th>
+                             
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+

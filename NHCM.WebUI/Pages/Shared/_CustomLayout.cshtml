@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <link rel="apple-touch-icon" sizes="57x57" href="~/assets/favicon/apple-icon-57x57-nsia.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/assets/favicon/apple-icon-60x60-nsia.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/assets/favicon/apple-icon-72x72-nsia.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/favicon/apple-icon-76x76-nsia.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/assets/favicon/apple-icon-114x114-nsia.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/assets/favicon/apple-icon-120x120-nsia.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/assets/favicon/apple-icon-144x144-nsia.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/assets/favicon/apple-icon-152x152-nsia.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/favicon/apple-icon-180x180-nsia.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/assets/favicon/android-icon-192x192-nsia.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/assets/favicon/favicon-32x32-nsia.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/assets/favicon/favicon-96x96-nsia.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/favicon/favicon-16x16-nsia.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/assets/favicon/ms-icon-144x144-nsia.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>سیستم ملی منابع بشری دولت افغانستان</title>
+    @* Template css references *@
+    <link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/croppic.css" rel="stylesheet" />
+
+
+    <link href="~/assets/css/jquery.treetable.theme.default.css" rel="stylesheet" />
+    <link href="~/assets/css/icons/fontawesome/styles.min.css" rel="stylesheet" />
+    <link href="~/assets/css/jquery.orgchart.css" rel="stylesheet" />
+
+
+    @* CSS for the persian datepicker *@
+    <link href="~/custom/css/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet" />
+    @* Overriden other classes*@
+    <link href="~/custom/css/hrmis.css" rel="stylesheet" />
+    @*Treetable Css file*@
+    <link href="~/custom/css/jquery.treetable.css" rel="stylesheet" />
+
+</head>
+<body class="rtl" dir="rtl">
+    <div id="overlay">
+        <div class="centered">
+            <img src="~/custom/images/logo.gif" class="centered" style="margin-left: auto; margin-right: auto;" />
+        </div>
+    </div>
+    <!-- Main navbar -->
+    <div class="navbar" style="background: #fff; box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5); color: #444;">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../index">
+                <img src="~/assets/img/logo.png" />
+                <span>
+                    استخدام
+                </span>
+            </a>
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+        <ul class="nav navbar-nav">
+
+            @*<li class="dropdown dropdown-user">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="caret"></i>
+                    <span>میر عزیز الله رحمتی کارمند اداره ملی احصائیه و معلومات</span>
+
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#"><i class="icon-user-plus"></i>بیوگرافی من</a></li>
+                    <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i class="icon-comment-discussion"></i>پیام های من</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="icon-cog5"></i>تنظیمات حساب من</a></li>
+                    <li><a href="#"><i class="icon-switch2"></i> خروج از سیستم</a></li>
+                </ul>
+
+            </li>*@
+
+            <partial name="_LoginPartial" />
+
+        </ul>
+    </div>
+    <!-- /main navbar -->
+    <!-- /main navbar -->
+    <!-- Page container -->
+    <div class="page-container">
+        <!-- Page content -->
+        <div class="page-content">
+            <div class="content-wrapper">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12 pull-right">
+                         
+                            <div class="col-md-10 col-md-offset-1 main-content">
+                                <div class="panel panel-flat" style="direction: rtl;">
+                                    @RenderBody()
+                                </div>
+                                <div class="dependent-screens">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <environment include="Development,Production">
+        <script type="text/javascript" src="~/assets/js/plugins/loaders/pace.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/core/libraries/jquery.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/core/libraries/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/plugins/tables/datatables/datatables.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/plugins/notifications/jgrowl.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/plugins/forms/validation/localization/messages_fa.js"></script>
+        <script type="text/javascript" src="~/assets/js/plugins/forms/validation/validate.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/plugins/uploaders/fileinput.min.js"></script>
+
+
+        <script type="text/javascript" src="~/assets/js/plugins/visualization/echarts/echarts.js"></script>
+        <script type="text/javascript" src="~/assets/js/charts/echarts/pies_donuts.js"></script>
+
+        <script src="~/assets/js/plugins/forms/selects/select2.min.js"></script>
+        <script src="~/custom/js/jquery.md.bootstrap.datetimepicker.js"></script>
+        <script src="~/assets/js/plugins/forms/validation/localization/messages_fa.js"></script>
+        <script src="~/assets/js/plugins/croppic/croppic.js"></script>
+
+        <script src="~/assets/js/plugins/treetable/jquery.treetable.js"></script>
+        <script src="~/assets/js/plugins/html2convas/html2canvas.js"></script>
+        <script src="~/assets/js/plugins/orgchart/jquery.orgchart.js"></script> 
+
+        <script src="~/assets/js/plugins/clean/nhcm.clean.v1.0.0.001.js"></script>
+        <script src="~/assets/js/plugins/clean/nhcm.clean.page.v1.0.0.001.js"></script>
+        <script src="~/assets/js/plugins/clean/nhcm.clean.form.v1.0.0.001.js"></script>
+        <script src="~/assets/js/plugins/clean/nhcm.clean.actionmenu.v1.0.0.001.js"></script>
+        <script src="~/assets/js/plugins/clean/nhcm.clean.tazkira.v1.0.0.001.js"></script>
+
+
+    </environment>
+    <script>
+        $(document).ready(function () {
+            clean.init();
+        });
+    </script>
+    @RenderSection("PageScripts", required: false)
+</body>
+</html>

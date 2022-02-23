@@ -1,0 +1,105 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Recruitment.LanguageModel
+
+@{
+    Layout = null;
+}
+
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">بخش مهارت زبانها</h1>
+    </div>
+    <div class="panel-body" style="padding-bottom:5px;">
+        <form id="dv_Recruitment_Language" class="form sub-form page-component" attachment="true" type="form" prefix="uxlg" parent="dv_Recruitment_PersonProfile" parentcol="PersonID">
+            <fieldset class="content-group">
+                <legend class="text-bold">زبان های خارجی</legend>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                زبان
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxlglanguageid" name="uxlgLanguageID" asp-items="@Model.ListOfLanguages" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                مهارت خواندن
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxlgreadingexpertise" name="uxlgReadingExpertise" type="text" class=" search" asp-items="@Model.ListOfExpertise" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                مهارت صحبت کردن
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxlgspeakingexpertise" asp-items="@Model.ListOfExpertise" name="uxlgSpeakingExpertise" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                مهارت فهمیدن
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxlgunderstandingexpertise" asp-items="@Model.ListOfExpertise" name="uxlgUnderstandingExpertise" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                مهارت نوشتن
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxlgwritingexpertise" asp-items="@Model.ListOfExpertise" name="uxlgWritingExpertise" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr>
+                            <th colname="LanguageText">زبان</th>
+                            <th colname="ReadingExpertiseText">خواندن</th>
+                            <th colname="UnderstandingExpertiseText">فهمیدن</th>
+                            <th colname="WritingExpertiseText">نوشتن</th>
+                            <th colname="SpeakingExpertiseText">صحبت کردن</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+

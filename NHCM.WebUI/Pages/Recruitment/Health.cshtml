@@ -1,0 +1,91 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Recruitment.HealthModel
+
+
+@{
+    Layout = null;
+}
+
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">گذارش و معاینات صحی</h1>
+    </div>
+    <div class="panel-body" style="padding-bottom:5px;">
+        <form id="dv_Recruitment_Health" class="form sub-form page-component" attachment="true" type="form" prefix="uxph" parent="dv_Recruitment_Person" parentcol="PersonID">
+            <fieldset class="content-group">
+                <legend class="text-bold">ثبت گذارش صحی کارمند</legend>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                تاریخ راپور
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxphreportdatesh" name="uxphreportdatesh" sibling="uxphreportdate" class="form-control Shamsi" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group">
+                            <label class="text-bold">
+                                معادل
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                <input type="text" id="uxphreportdate" name="uxphReportDate" sibling="uxphreportdatesh" class="form-control Miladi" aria-label="date1" aria-describedby="date1" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                حالت
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+
+                            <select id="uxphstatusid" name="uxphStatusID" asp-items="@Model.ListOfStatus" class="select" required>
+                                <option></option>
+                                <option>نارمل</option>
+                            </select>
+                        </div>
+                    </div> 
+
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">ملاحضات </label>
+                            <textarea id="uxphremarks" name="uxphRemarks" rows="3" cols="5" class="form-control remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr>
+                            <th colname="ReportDateText">تاریخ راپور</th> 
+                            <th colname="statustext">حالت</th>
+                            <th colname="remarks">ملاحضات</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+
+    </div>
+</div>

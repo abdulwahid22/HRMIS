@@ -1,0 +1,107 @@
+﻿@page
+@model NHCM.WebUI.Pages.Security.UserInRoleModel
+@{
+    ViewData["Title"] = "UserInRole";
+    Layout = "~/Pages/Security/Shared/_SecuritySharedLayout.cshtml";
+}
+
+<div class="panel-heading">
+    <h1 class="panel-title">تعین حقوق و نقش های کاربر</h1>
+</div>
+
+<div class="panel-body">
+    <form asp-page-handler="AddUserInRole" method="post" class="form main-form page-component" type="form">
+        <fieldset class="content-group">
+            <div class="row">
+                <div class="col-md-6 pull-right">
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group">
+                                <label class="text-bold">
+                                    کاربران
+                                    <span class="text-danger"></span>
+                                </label>
+                                <select asp-items="@Model.ListOfUsers" asp-for="@Model.UserId" class="form-control select"></select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                            <div class="form-group">
+                                <label class="text-bold">
+                                  حقوق و نقش ها
+                                    <span class="text-danger"></span>
+                                </label>
+                                <select asp-items="@Model.ListOfRoles" asp-for="@Model.RoleId" class="form-control select"></select>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="col-md-6 pull-right">
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+                            @if (ModelState.ErrorCount > 0)
+                            {
+                                <label class="control-label text-bold text-danger">
+                                    لطفا دقت نماید
+                                </label>
+                                <ul>
+                                    @foreach (var item in ViewData.ModelState.Values)
+                                    {
+                                        foreach (var error in item.Errors)
+                                        {
+                                            <li style="color:red">@error.ErrorMessage</li>
+                                        }
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <label style="color:green">
+                                    @Model.Message
+                                </label>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+
+
+
+
+        <div class="row div-form-control">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" ><i class="icon-floppy-disk position-right"></i>تعیین نقش</button>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+@section Scripts{
+
+    <partial name="Security/Shared/_ValidationScriptsPartial" />
+}
+

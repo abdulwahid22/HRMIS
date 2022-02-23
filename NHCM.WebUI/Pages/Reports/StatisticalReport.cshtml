@@ -1,0 +1,252 @@
+﻿@page "{handler?}"
+@model NHCM.WebUI.Pages.Reports.StatisticalReportModel
+@{
+    ViewData["Title"] = "StatisticsReport";
+    Layout = "~/Pages/Shared/_CustomLayout.cshtml";
+}
+
+
+@Html.AntiForgeryToken()
+
+<div class="panel-heading">
+    <h1 class="panel-title">راپور احصایوی</h1>
+</div>
+<div class="panel-body" style="padding-bottom:5px;">
+    <form id="dv_Reports_StatisticalReport" class="form main-form page-component" type="form" prefix="rp">
+        <fieldset class="content-group">
+            <legend class="text-bold"> راپور های احصایوی</legend>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            ارگان
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="rporgunittypeid" name="rporgunittypeid" asp-items="@Model.ListOfOrganization" class="select search" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr>
+                            <th colname="gender_type">جنسیت</th>
+                            <th colname="postion_type">بست</th>
+                            <th colname="Coun">تعداد</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+
+
+
+
+            @*<!-- Page content -->
+                <div class="page-content">
+
+                    <div class="content-wrapper">
+                        <!-- Content area -->
+                        <div class="content">
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <!-- Basic pie chart -->
+                                    <div class="panel panel-flat">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">احصایه کارمندان به اساس تحصیل</h4>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="chart-container has-scroll">
+                                                <div class="chart has-fixed-height has-minimum-width" id="basic_pie"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /bacis pie chart -->
+                                    <!-- Nested pie charts -->
+                                    <div class="panel panel-flat">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">احصایه کارمندان به اساس جنسیت</h4>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="chart-container has-scroll">
+                                                <div class="chart has-fixed-height has-minimum-width" id="nested_pie"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /nested pie charts -->
+                                    <!-- Nightingale roses width hidden labels -->
+                                    <div class="panel panel-flat">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">Nightingale roses (hidden labels)</h5>
+                                            <div class="heading-elements">
+                                                <ul class="icons-list">
+                                                    <li><a data-action="collapse"></a></li>
+                                                    <li><a data-action="reload"></a></li>
+                                                    <li><a data-action="close"></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="chart-container has-scroll">
+                                                <div class="chart has-fixed-height has-minimum-width" id="rose_diagram_hidden"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /nightingale roses width hidden labels -->
+                                    <!-- Multi level donut -->
+                                    <div class="panel panel-flat">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">Multi level donut chart</h5>
+                                            <div class="heading-elements">
+                                                <ul class="icons-list">
+                                                    <li><a data-action="collapse"></a></li>
+                                                    <li><a data-action="reload"></a></li>
+                                                    <li><a data-action="close"></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="chart-container has-scroll">
+                                                <div class="chart has-fixed-height has-minimum-width" id="lasagna_donut"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /multi level donut -->
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <!-- Basic donut chart -->
+                                    <div class="panel panel-flat">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">احصایه کارمندان به اساس رتبه / بست</h4>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="chart-container has-scroll">
+                                                <div class="chart has-fixed-height has-minimum-width" id="basic_donut"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /basic donut chart -->
+                                    <!-- Infographic style -->
+                                    <div class="panel panel-flat">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">Infographic style</h5>
+                                            <div class="heading-elements">
+                                                <ul class="icons-list">
+                                                    <li><a data-action="collapse"></a></li>
+                                                    <li><a data-action="reload"></a></li>
+                                                    <li><a data-action="close"></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="chart-container has-scroll">
+                                                <div class="chart has-fixed-height has-minimum-width" id="infographic_donut"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /infographic style -->
+                                    <!-- Nightingale roses width visible labels -->
+                                    <div class="panel panel-flat">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">Nightingale roses (visible labels)</h5>
+                                            <div class="heading-elements">
+                                                <ul class="icons-list">
+                                                    <li><a data-action="collapse"></a></li>
+                                                    <li><a data-action="reload"></a></li>
+                                                    <li><a data-action="close"></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="chart-container has-scroll">
+                                                <div class="chart has-fixed-height has-minimum-width" id="rose_diagram_visible"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /nightingale roses width hidden labels -->
+                                    <!-- Pie chart timeline -->
+                                    <div class="panel panel-flat">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">Pie chart timeline</h5>
+                                            <div class="heading-elements">
+                                                <ul class="icons-list">
+                                                    <li><a data-action="collapse"></a></li>
+                                                    <li><a data-action="reload"></a></li>
+                                                    <li><a data-action="close"></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="chart-container has-scroll">
+                                                <div class="chart has-fixed-height has-minimum-width" id="pie_timeline"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /pie chart timeline -->
+
+                                </div>
+                            </div>
+
+
+                            <!-- Multiple donut charts -->
+                            <div class="panel panel-flat">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">Multiple donuts</h5>
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li><a data-action="reload"></a></li>
+                                            <li><a data-action="close"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+                                    <div class="chart-container has-scroll">
+                                        <div class="chart has-fixed-height has-minimum-width" id="multiple_donuts" style="height: 450px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /multiple donut charts -->
+                            <!-- Footer -->
+                            <div class="footer text-muted">
+                                &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+                            </div>
+                            <!-- /footer -->
+
+                        </div>
+                        <!-- /content area -->
+
+                    </div>
+                </div>*@
+
+        </fieldset>
+    </form>
+</div>
+
+

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="OrganogramCheckAndControl\**" />
+    <EmbeddedResource Remove="OrganogramCheckAndControl\**" />
+    <None Remove="OrganogramCheckAndControl\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NHCM.Domain\NHCM.Domain.csproj" />
+    <ProjectReference Include="..\NHCM.Persistence\NHCM.Persistence.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.1.3" />
+    <PackageReference Include="MediatR" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+
+    <Folder Include="Lookup\Validators\" />
+
+  </ItemGroup>
+</Project>

@@ -1,0 +1,93 @@
+﻿@page "{handler?}"
+@using NHCM.Domain.Entities;
+@model NHCM.WebUI.Pages.Organogram.IARCSCPresidentOfficeModel
+@{
+    ViewData["Title"] = "Plan";
+    Layout = "~/Pages/Shared/_CustomLayout.cshtml";
+}
+
+
+@Html.AntiForgeryToken()
+<div class="panel-heading">
+    <h1 class="panel-title">پلان تشکیل</h1>
+</div>
+<div class="panel-body" style="padding-bottom:5px;">
+    <form id="dv_Organogram_Plan" class="form main-form page-component" type="form" subform="dv_Organogram_Positions" prefix="orgp" hasprocess="true">
+        <fieldset class="content-group">
+            <legend class="text-bold">
+                مطالعه و تائید تشکیل از طرف ریاست دفتر کمیسیون مستقل اصلاحات اداری و خدمات ملکی
+            </legend>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            واحد بودجوی
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="orgporganizationid" name="orgporganizationid" asp-items="@Model.ListOfOrganization" class="select search" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            سال
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="orgpyear" name="orgpyear" class="select search" asp-items="@Model.ListOfPersianYears" disabled>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            نوع ایجاد بست ها
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="orgpispositionscopied" name="orgpispositionscopied" class="select search" asp-items="@Model.ListOfStatus" disabled>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group has-feedback has-feedback-left">
+                        <label class="text-bold">
+                            تعداد بست
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <input id="orgpnumberofpositions" name="orgpNumberOfPositions" type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <hr />
+        <div class="row div-form-control main-form-details">
+            <div class="col-md-12">
+                <div class="form-group actions">
+                    <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                    <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-grid">
+            <table style="direction: rtl;" bindonclick="true">
+                <thead>
+                    <tr>
+                        <th colname="OrganizationText">موسسه</th>
+                        <th colname="CreationType">موسسه</th>
+                        <th colname="Year"> سال</th>
+                        <th colname="NumberOfPositions">تعداد بست</th>
+                        <th colname="statustext">حالت</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </form>
+</div>
+
+
+

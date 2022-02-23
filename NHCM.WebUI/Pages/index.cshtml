@@ -1,0 +1,106 @@
+﻿@page
+@model NHCM.WebUI.Pages.indexModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.hrmis.gov.af">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="apple-touch-icon" sizes="57x57" href="~/assets/favicon/favicon_icon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/assets/favicon/favicon_icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/assets/favicon/favicon_icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/favicon/favicon_icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/assets/favicon/favicon_icon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/assets/favicon/favicon_icon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/assets/favicon/favicon_icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/assets/favicon/favicon_icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/favicon/favicon_icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/assets/favicon/favicon_icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/assets/favicon/favicon_icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/assets/favicon/favicon_icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/favicon/favicon_icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/assets/favicon/favicon_icon.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>سیستم ملی منابع بشری افغانستان</title>
+    @* Template css references *@
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+    @* CSS for the persian datepicker *@
+    <link href="~/custom/css/jquery.md.bootstrap.datetimepicker.style.css" rel="stylesheet" />
+
+
+    @* Overriden other classes*@
+    <link href="~/custom/css/overridenclasses.css" rel="stylesheet" />
+    <link href="~/custom/css/hrmis.css" rel="stylesheet" />
+</head>
+<body class="rtl" dir="rtl">
+    <!-- Main navbar -->
+    <div class="navbar" style="background: #fff; box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5); color: #444;">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index">
+                <img src="~/assets/img/logo.png" />
+                <span>
+                    استخدام
+                </span>
+            </a>
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="dropdown dropdown-user">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="caret"></i>
+                    <span>نام و تخلص کارمند</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#"><i class="icon-user-plus"></i>بیوگرافی من</a></li>
+                    <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i class="icon-comment-discussion"></i>پیام های من</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="icon-cog5"></i>تنظیمات حساب من</a></li>
+                    <li><a href="#"><i class="icon-switch2"></i> خروج از سیستم</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="page-container">
+        <!-- Page content -->
+        <div class="page-content">
+            <div class="content-wrapper">
+                <!-- Content area -->
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 dash" style="direction: rtl;">
+                            <div class="col-md-12">
+                                @Html.Raw(@Model.HTML)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <environment include="Development">
+        <script type="text/javascript" src="~/assets/js/plugins/loaders/pace.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/core/libraries/jquery.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/core/libraries/bootstrap.min.js"></script>
+    </environment>
+    <script>
+        $(document).ready(function () {
+            clean.init();
+        });
+    </script>
+</body>
+</html>
+

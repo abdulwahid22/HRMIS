@@ -1,0 +1,182 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Recruitment.AddressModel
+
+@{ 
+    Layout = null;
+}
+
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">آدرس و تماس ها</h1>
+    </div>
+    <div class="panel-body" style="padding-bottom:5px;">
+        <form id="dv_Recruitment_Address" class="form sub-form page-component" type="form" attachment="true"  prefix="uxad" parent="dv_Recruitment_Person" parentcol="PersonID">
+            <fieldset class="content-group">
+                <legend class="text-bold">لطفاً آدرس کارمند را در فورم ذیل درج نمائید</legend>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                سکونت اصلی
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxadlocationid" name="uxadLocationID" asp-items="@Model.ListOfLocations" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                ناحیه
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxaddistrictid" name="uxadDistrictID" asp-items="@Model.ListOfDistricts" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                قریه
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxadvillage" name="uxadVillage" type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                سکونت فعلی
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxadclocationid" name="uxadCLocationID" asp-items="@Model.ListOfLocations" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                ناحیه
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxadcdistrictid" name="uxadCDistrictID" asp-items="@Model.ListOfDistricts" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                قریه
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxadcvillage" name="uxadCVillage" type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نمبر سرک
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxadstreetno" name="uxadStreetNo" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نمبر خانه
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxadhouseno" name="uxadHouseNo" type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نمبر تلیفون
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxadphone" name="uxadPhone" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                نمبر موبایل
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxadmobile" name="uxadMobile" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">
+                                ایمیل آدرس
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <input id="uxademailaddress" name="uxadEmailAddress"  class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <legend class="text-bold">لطفاً آدرس کارمند را در فورم ذیل با جزئیات بیشترآن درج نمائید</legend>
+                    <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">آدرس مکمل سکونت اصلی <span class="text-danger">&nbsp;*</span></label>
+                            <textarea id="uxadpaddress" rows="2" cols="5" class="form-control remarks"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">آدرس مکمل سکونت فعلی <span class="text-danger">&nbsp;*</span></label>
+                            <textarea id="uxadaddress" rows="2" cols="5" class="form-control remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت معلومات</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-new-tab position-right"></i>جستجو</button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-grid">
+                <table style="direction: rtl;" bindonclick="true">
+                    <thead>
+                        <tr>
+
+                            <th colname="LocationText">محل</th>
+                            <th colname="ClocationText">سکونت فعلی</th>
+                            <th colname="StreetNo">نمبر سرک</th>
+                            <th colname="HouseNo">نمبر خانه</th>
+                            <th colname="Phone">نمبر تلیفون</th>
+                            <th colname="Mobile">نمبر موبایل</th>
+                            <th colname="EmailAddress">ایمیل آدرس</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

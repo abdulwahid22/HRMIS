@@ -1,0 +1,86 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Reports.AttendanceDailyReportModel
+@{
+    ViewData["Title"] = "AttendanceDailyReport";
+    Layout = "~/Pages/Shared/_CustomLayout.cshtml";
+}
+@Html.AntiForgeryToken()
+
+<div class="panel-heading">
+    <h1 class="panel-title">گزارش حاضری روزمره کارمندان</h1>
+</div>
+<div class="panel-body" style="padding-bottom:5px;">
+    <form id="dv_Reports_AttendanceDailyReport" class="form main-form page-component" type="form" prefix="att">
+        <fieldset class="content-group">
+            <legend class="text-bold">برای اینکه حاضری کارمندان را مشاهده نمائید، لطفاً ریاست مورد نظر خویش را انتخاب نموده و تاریخ شروع و ختم گزارش را تعین نمائید. </legend>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group">
+                        <label class="text-bold">
+                            ریاست مربوطه
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="attdepartmentid" name="attdepartmentid" asp-items="@Model.ListOfDepartment" class="select search" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group">
+                        <label class="text-bold">
+                            ماه
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="attmonth" name="attmonth"  asp-items="@Model.ListOfMonths" class="select search" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group">
+                        <label class="text-bold">
+                            سال
+                            <span class="text-danger">&nbsp;*</span>
+                        </label>
+                        <select id="attyear" name="attyear" asp-items="@Model.ListOfYears" class="select search" required>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr /> 
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-search4 position-right"></i>جستجو </button>
+                        <button type="button" class="btn btn-primary" action="new"><i class="icon-new-tab position-right"></i>صفحه جدید</button>
+                    </div>
+                </div>
+            </div> 
+            <div class="form-grid">
+                <table style="direction: rtl;"  filter="true">
+                    <thead>
+                        <tr>
+                            <th colname="NameLocal">اسم مکمل</th>
+                            <th colname="FatherNameLocal">ولد</th>
+                            <th colname="Bast">بست</th>
+                            <th colname="Qadam">قدم</th>
+                            <th colname="UserID">کود حاضری</th>
+                            <th colname="TITLE">عنوان وظیفه</th>
+                            <th colname="Department">ریاست</th>
+                            <th colname="Present">حاضر</th>
+                            <th colname="Absent">غیر حاضر</th>
+                            <th colname="Leave">رخصت</th>
+                            <th colname="AbsentDates">ملاحضات </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div> 
+        </fieldset>
+    </form>
+</div>
+
+

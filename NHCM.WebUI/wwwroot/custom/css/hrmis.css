@@ -1,0 +1,505 @@
+﻿body {
+    font-family: Calibri !important;
+}
+
+.navbar-header {
+    float: right;
+}
+
+.navbar-brand {
+    width: 470px;
+    color: #123054;
+}
+
+    .navbar-brand img {
+        float: right;
+        height: 45px;
+        margin-top: -12px;
+        margin-left: 12px;
+    }
+
+    .navbar-brand span {
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 0px 2px 1px #808080;
+    }
+
+
+
+.dash {
+    text-align: center;
+    font-family: Calibri;
+    color: #123054;
+}
+
+    .dash h4 {
+        text-align: right;
+        font-size: 20px;
+        font-weight: bold;
+        text-shadow: 0px 2px 1px #808080;
+    }
+
+    .dash img {
+        height: 70px;
+    }
+
+    .dash h5, .dash span {
+        color: #1b3b62;
+    }
+
+        .dash h5:hover, .dash span:hover {
+            color: #355a88;
+        }
+
+    .dash a:hover {
+        text-decoration: none !important;
+    }
+
+        .dash a:hover > h5, .dash a:hover > span {
+            color: #355a88;
+            text-decoration: none !important;
+        }
+
+    .dash span {
+        font-size: 12px;
+    }
+
+    .dash h5 {
+        margin-bottom: 0px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+
+.dash-header h1, h6 {
+    direction: rtl;
+    text-align: right !important;
+}
+
+.dash-header {
+    margin-bottom: 25px;
+    margin-top: 40px;
+    border-bottom: 1px solid #ccc;
+}
+
+.dash-body {
+    direction: rtl;
+}
+
+    .dash-body .menu-item {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        float: right;
+    }
+
+.navigation li i {
+    float: right !important;
+    margin-left: 15px !important;
+    margin-right: 0px !important;
+}
+
+.navigation li {
+    text-align: right !important;
+}
+
+
+    .navigation li a:hover {
+        text-decoration: none;
+    }
+
+.grid {
+    border-top: 2px solid #750404;
+}
+
+.jGrowl div {
+    font-family: Calibri;
+    font-size: 14px;
+    font-weight: bold;
+    direction: rtl;
+    text-align: right;
+}
+
+.panel-heading {
+    font-family: Calibri;
+    direction: rtl;
+    color: #123054 !important;
+    font-weight: bold !important;
+}
+
+    .panel-heading h1 {
+        font-weight: bold !important;
+        text-shadow: 0px 2px 1px #808080;
+    }
+
+
+.btn {
+    font-family: Calibri;
+    font-weight: bold;
+    box-shadow: 0px 4px 5px #808080;
+    border-radius: 0;
+}
+
+    .btn:hover, .btn:focus, .btn:active {
+        box-shadow: 0px 4px 5px #808080;
+    }
+
+.next {
+    background: #4ca851 !important;
+    border: 1px solid #4ca851 !important;
+    float: left;
+}
+
+    .next:hover, .next:focus, .next:active {
+        background: #4cb051 !important;
+        border: 1px solid #4cb051 !important;
+    }
+
+.previous {
+    background: #ef5350 !important;
+    border: 1px solid #ef5350 !important;
+    float: left;
+    margin-left: 5px;
+}
+
+    .previous:hover, .previous:focus, .previous:active {
+        background: #ee322f !important;
+        border: 1px solid #ee322f !important;
+    }
+
+.validation-error-label {
+    font-size: 12px;
+}
+
+#uxMenuList li a {
+    color: #444;
+}
+
+.table th {
+    direction: rtl;
+    text-align: right;
+    background: #e5e5e5;
+}
+
+.navigation > li.active > a {
+    color: #fff !important;
+}
+
+.media-right {
+    padding-left: 0px;
+}
+
+.navigation > li ul {
+    background-color: rgba(255,255,255,0.15);
+}
+
+td .label {
+    font-size: 14px;
+}
+
+.dropdown-menu > li {
+    position: relative;
+    margin-bottom: 1px;
+    direction: rtl;
+    text-align: right;
+}
+
+    .dropdown-menu > li > a > i, .dropdown-menu > li > a > img {
+        margin-left: 10px;
+    }
+
+.is-invalid {
+    color: red;
+    font-weight: bold;
+    font-family: Calibri;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    font-family: Calibri;
+    font-size: 10px !important;
+    float: right !important;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.5); /* Black background with opacity */
+    z-index: 9999; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.centered {
+    position: fixed; /* or absolute */
+    top: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.navbar-brand {
+    font-size: 14px !important;
+}
+
+.input-group {
+    direction: ltr;
+}
+
+.PersianDatePicker {
+    direction: rtl;
+}
+
+.time {
+    direction: ltr;
+    text-align: center;
+}
+
+
+.input-group-addon {
+    max-height: 30px !important;
+    height: 30px !important;
+}
+
+.fetch-record {
+    cursor: pointer !important;
+}
+
+
+.form-grid {
+    border-top: 2px solid #123054 !important;
+}
+
+.img-uploader {
+    width: 90%;
+    height: 190px;
+    position: relative;
+    border: 2px solid #808080;
+    background-image: url("../images/nophoto.png");
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0 4px #808080;
+}
+
+.dataTables_scrollHeadInner {
+    background: #e5e5e5;
+}
+
+.file-input .btn {
+    box-shadow: none !important;
+}
+
+.file-caption {
+    height: 35px;
+}
+
+.hrmis-error {
+    border: 1px solid red !important;
+    color: red;
+}
+
+.Shamsi {
+    text-align: right;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.login-container .content-group {
+    margin-bottom: 20px !important;
+}
+
+.login-container h5 {
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: 1.5;
+    color: inherit;
+    margin-top: 10px;
+    color: #214877;
+}
+
+.login-container h4 {
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: 1.5;
+    color: inherit;
+    margin-top: 10px;
+    color: #214877;
+}
+
+.login-container .has-feedback-left .form-control {
+    padding-left: 12px;
+    padding-right: 36px;
+}
+
+.login-container .has-feedback-left .form-control-feedback {
+    left: auto;
+    right: 0;
+}
+
+
+.login-container a {
+    color: #1b3b62;
+}
+
+    .login-container a:hover, .login-container a:active {
+        color: #1b3b62;
+    }
+
+.file-caption-name {
+    direction: rtl;
+}
+
+.file-caption .error-upload {
+    color: red;
+}
+
+.file-input .input-group {
+    direction: rtl;
+    overflow: hidden !important;
+}
+
+.file-input .file-caption-name {
+    float: right;
+    direction: rtl;
+}
+
+.file-caption > span {
+    display: inline-block;
+    float: right;
+    margin-top: 3px;
+    margin-left: 6px;
+}
+
+.file-caption-name {
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 90%;
+}
+
+
+.close-bttn {
+    background: #eee;
+    float: left;
+    color: #1b3b62;
+}
+
+    .close-bttn:hover, .close-bttn:active, .close-bttn:focus {
+        background: #e5e5e5;
+        text-decoration: none;
+        color: #1b3b62;
+    }
+
+.form-section {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-top: 15px;
+    margin-bottom: 5px;
+}
+
+.btn-link:hover, .btn-link:active, .btn-link:focus {
+    color: #1b3b62;
+    text-decoration: none;
+}
+
+.dropdown-menu-right {
+    right: auto;
+    left: 0;
+}
+
+.navbar-nav {
+    text-align: right;
+    margin-left: 10px;
+}
+
+.dropdown-user, .dropdown-user a {
+    text-align: right;
+    color: #1b3b62;
+    font-weight: bold;
+}
+
+    .dropdown-user a:hover, .dropdown-user a:active, .dropdown-user a:focus {
+        text-align: right;
+        color: #1b3b62;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+
+.dropdown-menu > li > a, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    text-align: right;
+    color: #1b3b62;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    color: #1b3b62;
+}
+
+.dataTables_filter {
+    position: relative;
+    display: block;
+    float: right;
+    margin: 10px 0px 10px 0;
+    padding-right: 20px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+    .dataTables_filter input {
+        border: 1px solid #aaa;
+    }
+
+
+.modal-content .panel {
+    margin-bottom: 0px !important;
+}
+
+.row-selected, expanded, .row-selected .link {
+    background: #1b3b62;
+    color: #f5f5f5;
+}
+
+    .row-selected:hover {
+        background: #1b3b62 !important;
+        color: #f5f5f5;
+    }
+
+
+.tooltip-inner {
+    padding: 7px 12px;
+    font-family: calibri;
+    font-weight: bold;
+}
+
+
+#chart-container {
+    position: relative;
+    display: inline-block;
+    top: 10px;
+    left: 10px;
+    height: 420px;
+    width: calc(100% - 24px);
+    border-radius: 5px;
+    overflow: auto;
+    text-align: center;
+    direction:ltr;
+}

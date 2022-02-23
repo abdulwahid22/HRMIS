@@ -1,0 +1,124 @@
+﻿@page 
+@model NHCM.WebUI.Pages.Security.LoginModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.hrmis.gov.af">
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="apple-touch-icon" sizes="57x57" href="~/assets/favicon/apple-icon-57x57-nsia.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="~/assets/favicon/apple-icon-60x60-nsia.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="~/assets/favicon/apple-icon-72x72-nsia.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="~/assets/favicon/apple-icon-76x76-nsia.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="~/assets/favicon/apple-icon-114x114-nsia.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="~/assets/favicon/apple-icon-120x120-nsia.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="~/assets/favicon/apple-icon-144x144-nsia.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="~/assets/favicon/apple-icon-152x152-nsia.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="~/assets/favicon/apple-icon-180x180-nsia.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="~/assets/favicon/android-icon-192x192-nsia.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="~/assets/favicon/favicon-32x32-nsia.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="~/assets/favicon/favicon-96x96-nsia.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="~/assets/favicon/favicon-16x16-nsia.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="~/assets/favicon/ms-icon-144x144-nsia.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>NSIA - HRMIS</title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>themelock.com - Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
+        <!-- Global stylesheets -->
+        <link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+        <link href="~/assets/css/minified/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="~/assets/css/minified/core.min.css" rel="stylesheet" type="text/css">
+        <link href="~/assets/css/minified/components.min.css" rel="stylesheet" type="text/css">
+        <link href="~/assets/css/minified/colors.min.css" rel="stylesheet" type="text/css">
+        <!-- /global stylesheets -->
+        <!-- Core JS files -->
+        <script type="text/javascript" src="~/assets/js/plugins/loaders/pace.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/core/libraries/jquery.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/core/libraries/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/plugins/loaders/blockui.min.js"></script>
+        <link href="~/custom/css/hrmis.css" rel="stylesheet" />
+
+        <script>
+            $(function () {
+                function containerHeight() {
+                    var availableHeight = $(window).height() - $('body > .navbar').outerHeight() - $('body > .navbar + .navbar').outerHeight() - $('body > .navbar + .navbar-collapse').outerHeight();
+                    $('.page-container').attr('style', 'min-height:' + availableHeight + 'px');
+                }
+                $(window).on('resize', function () {
+                    setTimeout(function () {
+                        containerHeight();
+                    }
+                        , 100);
+                }).resize();
+            })();
+        </script>
+
+    </head>
+    <body class="rtl" dir="rtl">
+        <div class="page-container login-container">
+            <div class="page-content">
+                <div class="content-wrapper">
+                    <div class="content">
+                        <form id="loginform" method="post">
+                            <div class="panel panel-body login-form" style="border-radius:2px;">
+                                <div class="text-center">
+                                    <div class="login-logo">
+                                        <img style="max-height:130px; max-width:250px" src="~/assets/img/logo.png" />
+                                    </div>
+                                    <div>
+                                        <h4>د افغانستان د بشري سرچینو مدیریت سیسټم</h4>
+                                    </div>
+                                    <h5 class="content-group" style="font-weight:bold">خپل حساب ته ننوتل<small class="display-block">لاندې خپل اسناد درج کړئ</small></h5>
+                                </div>
+                                <div class="form-group has-feedback has-feedback-left">
+                                    <input type="text" asp-for="@Model.UserName" class="form-control" placeholder="برېښلیک پته" required />
+                                    <div class="form-control-feedback">
+                                        <i class="icon-user text-muted"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback has-feedback-left">
+
+
+                                    <input type="password" asp-for="@Model.Password" class="form-control" placeholder="د ننوتلو لپاره شفر" required />
+                                    <div class="form-control-feedback">
+                                        <i class="icon-lock2 text-muted"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">سیسټم ته ننوتل<i class="icon-circle-left2 position-left"></i></button>
+                                </div>
+                                <div>
+                                    @if (ModelState.ErrorCount > 0)
+                                    {
+                                        @foreach (var error in ViewData.ModelState.Values)
+                                        {
+                                            foreach (var item in error.Errors)
+                                            {
+                                                <lable class="pull-right text-danger control-label">
+                                                    @item.ErrorMessage
+                                                </lable>
+                                                <br />
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </form>
+                        <div class="footer text-muted" style="font-weight:bold">
+                            &copy; ۱۳۹۸. <a href="http://nsia.gov.af">د احصائیې او معلوماتو ملي اداره | اداره ملی احصائیه و معلومات</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

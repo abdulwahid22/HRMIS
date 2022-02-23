@@ -1,0 +1,63 @@
+﻿@page "{handler?}/{id?}"
+@model NHCM.WebUI.Pages.Document.ProcessModel
+@{
+    Layout = null;
+}
+
+<div class="panel panel-flat" style="direction: rtl;">
+    <div class="panel-heading">
+        <h1 class="panel-title">طی مراحل اسناد</h1>
+    </div>
+    <div class="panel-body" style="padding-bottom:5px;">
+        <form id="dv_Document_Process" class="form sub-form page-component" type="form" prefix="uxpd" parentcol="recordid">
+            <fieldset class="content-group">
+                <legend class="text-bold">اسناد انتخاب شده را به مراحل بعدی و قبلی ارسال بدارید</legend>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group" style="direction:rtl;">
+                            <label class="text-bold">
+                                لست مراحل
+                                <span class="text-danger">&nbsp;*</span>
+                            </label>
+                            <select id="uxpdreferedprocessid" name="uxpdreferedprocessid" asp-items="@Model.ListOfProcesses" class="select" required>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                        <div class="form-group has-feedback has-feedback-left">
+                            <label class="text-bold">ملاحضات </label>
+                            <textarea id="uxpdremarks" name="uxpdremarks" rows="2" cols="2" class="form-control remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <hr />
+            <div class="row div-form-control">
+                <div class="col-md-12">
+                    <div class="form-group actions">
+                        <button type="button" class="btn btn-primary" action="save"><i class="icon-floppy-disk position-right"></i>ثبت و ارسال</button>
+                        <button type="button" class="btn btn-primary" action="search"><i class="icon-new-tab position-right"></i>مشاهده تمام مراحل </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-grid">
+                <table style="direction: rtl;">
+                    <thead>
+                        <tr>
+                            <th colname="ProcessText">مرحله</th>
+                            <th colname="ModuleText">بخش مربوطه</th>
+                            <th colname="StatusText">حالت</th>
+                            <th colname="DateText">تاریخ ثبت مرحله</th>
+                            <th colname="Remarks">ملاحظات</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
